@@ -11,17 +11,20 @@ void insertion_sort_list(listint_t **list)
 
 	if (list == NULL || *list == NULL || (*list)->next == NULL)
 		return;
-
 	sorted = NULL;  /* Initialize sorted list as empty */
 	while (*list != NULL)
 	{
-		listint_t *current = *list;  /* Take the first node from the original list*/
-		*list = current->next;    /* Move to the next node in the original list*/
+		listint_t *current = *list; /* Take the first node from the original list*/
+		*list = current->next; /* Move to the next node in the original list*/
+		/* Disconnent the current node from the original list */
+		if (current->next != NULL)
+			current->next->prev = current->prev;
+		if (current->prev != NULL)
+			current->prev->next = current->next;
 		if (sorted == NULL || current->n < sorted->n)
 		{
-/* If sorted list is empty or current node's*/
- /* value is smaller, insert it at the beginning*/
- /* of the sorted list.*/
+/* If sorted list is empty or current node's value is smaller,*/
+/*insert it at the beginning of the sorted list.*/
 			current->next = sorted;
 			current->prev = NULL;
 			if (sorted != NULL)
@@ -35,15 +38,12 @@ void insertion_sort_list(listint_t **list)
 
 			while (temp->next != NULL && temp->next->n < current->n)
 				temp = temp->next;
-
 			current->next = temp->next;
 			current->prev = temp;
 			if (temp->next != NULL)
 				temp->next->prev = current;
 			temp->next = current;
 		}
-
-		/* Print the list after each swap */
 		print_list(sorted);
 	}
 	*list = sorted; /* Update the original list's head to sorted list*/
