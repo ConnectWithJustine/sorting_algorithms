@@ -29,6 +29,19 @@ void bubble_sort(int *array, size_t size);
 /* Insertion sort function */
 void insertion_sort_list(listint_t **list);
 
+/* Selection sort function asc*/
+void selection_sort(int *array, size_t size);
+
+/* Quick sort function */
+void quick_sort(int *array, size_t size);
+
+/* Shell sort algorithm */
+void shell_sort(int *array, size_t size);
+
+/* Cocktail shaker sort algorithm */
+void cocktail_sort_list(listint_t **list);
+
+
 
 
 
