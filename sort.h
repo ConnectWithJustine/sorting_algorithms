@@ -43,9 +43,22 @@ void shell_sort(int *array, size_t size);
 /* Cocktail shaker sort algorithm */
 void cocktail_sort_list(listint_t **list);
 
+/* counting sort function */
+void counting_sort(int *array, size_t size);
 
+/* merge sort function */
+void merge_sort(int *array, size_t size);
 
+/* heap sort function  */
+void heap_sort(int *array, size_t size); 
 
+/* radix sort function */
+void radix_sort(int *array, size_t size);
 
+/* bitonic sort function */
+void bitonic_sort(int *array, size_t size);
+
+/* quick sort function */
+void quick_sort_hoare(int *array, size_t size);
 
 #endif /* sort.h */
